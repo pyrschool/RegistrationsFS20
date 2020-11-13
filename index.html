@@ -6,9 +6,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration stand</title>
     <script>
+        var registrants = [];
         function collectRegistrationEntry() {
-            window.alert("Collecting");
+            var attName = document.getElementById("attName").value;
+            console.log(attName);
+            var attCompany = document.getElementById("attCompany").value;
+            console.log(attCompany);
+            var attEmail = document.getElementById("attEmail").value;
+            console.log(attEmail);
+            var attYearsOfExpereience = document.getElementById("attYearsOfExpereience").value;
+            console.log(attYearsOfExpereience);
+            var attLanguage1 = document.getElementById("attLanguage1").value;
+            console.log(attLanguage1);
+            var attLanguage2 = document.getElementById("attLanguage2").value;
+            console.log(attLanguage2);
+            var attLanguage3 = document.getElementById("attLanguage3").value;
+            console.log(attLanguage3);
+
+            var attendee = {
+                name: attName,
+                company : attCompany,
+                email : attEmail,
+                experience : attYearsOfExpereience,
+                lang : [ attLanguage1, attLanguage2, attLanguage3],
+            }; 
+            console.log(attendee);
+            console.log(registrants);
+            return attendee;
         }
+
+        function rebuildAttendeesTable() {
+            var body = document.getElementById("registeredAttendeesBody");
+            body.innerHTML = "";
+            var row = document.createElement("tr");
+            var cell;
+            var text;
+
+            var currentAttendee;
+
+            currentAttendee = registrants[0];
+
+            cell = document.createElement("td");
+            text = document.createTextNode(currentAttendee.name);
+            cell.appendChild(text);
+            row.appendChild(cell);
+
+            cell = document.createElement("td");
+            text = document.createTextNode(currentAttendee.company);
+            cell.appendChild(text);
+            row.appendChild(cell);
+
+            cell = document.createElement("td");
+            text = document.createTextNode(currentAttendee.email);
+            cell.appendChild(text);
+            row.appendChild(cell);
+
+            cell = document.createElement("td");
+            text = document.createTextNode(currentAttendee.experience);
+            cell.appendChild(text);
+            row.appendChild(cell);
+
+            cell = document.createElement("td");
+            text = document.createTextNode(currentAttendee.lang);
+            cell.appendChild(text);
+            row.appendChild(cell);
+
+            body.appendChild(row);
+
+        }
+
+        function handleNewAttendee() {
+            var att = collectRegistrationEntry();
+            registrants.push(att);
+            rebuildAttendeesTable();
+        }
+
     </script>
     </head>
 
@@ -23,7 +95,7 @@
             <label for="attCompany">Company</label><input type="text" name="attCompany" id="attCompany">
         </div>
         <div class="registrationRow">
-            <label for="attEmail">Your email</label><input type="email" name="attEmail" id="attEmail">
+            <label for="attEmail">Your email</label><input type="text" name="attEmail" id="attEmail">
         </div>
         <div class="registrationRow">
             <label for="attYearsOfExpereience">Years of experience</label><input type="number"
@@ -35,7 +107,7 @@
                 name="attLanguage2" id="attLanguage2"><input type="text" name="attLanguage3" id="attLanguage3">
         </div>
         <div class="registrationRow">
-            <input type="button" value="Register" onclick="collectRegistrationEntry()">
+            <input type="button" value="Register" onclick="handleNewAttendee()">
         </div>
     </form>
     <h3>Registered Attendees</h3>
