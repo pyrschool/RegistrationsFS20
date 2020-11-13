@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration stand</title>
+</head>
+
+<body>
+    <h2>Wellcome to our event</h2>
+    <h3>Registration form</h3>
+    <form>
+        <div class="registrationRow">
+            <label for="attName">Full name</label><input type="text" name="attName" id="attName">
+        </div>
+        <div class="registrationRow">
+            <label for="attCompany">Company</label><input type="text" name="attCompany" id="attCompany">
+        </div>
+        <div class="registrationRow">
+            <label for="attEmail">Your email</label><input type="email" name="attEmail" id="attEmail">
+        </div>
+        <div class="registrationRow">
+            <label for="attYearsOfExpereience">Years of experience</label><input type="number"
+                name="attYearsOfExpereience" id="attYearsOfExpereience">
+        </div>
+        <div class="registrationRow">
+            <label for="attLanguage1">Languages <a href="https://en.wikipedia.org/wiki/ISO_639-1" target="_blank">(use
+                    ISO code)</a></label><input type="text" name="attLanguage1" id="attLanguage1"><input type="text"
+                name="attLanguage2" id="attLanguage2"><input type="text" name="attLanguage3" id="attLanguage3">
+        </div>
+        <div class="registrationRow">
+            <input type="button" value="Register">
+        </div>
+    </form>
+    <h3>Registered Attendees</h3>
+    <div id="registeredAttendees">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Company</th>
+                    <th>Email</th>
+                    <th>Experience</th>
+                    <th>Languages</th>
+                <tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Doe John</td>
+                    <td>Mikrosft</td>
+                    <td>jdoe@mikr.ccc</td>
+                    <td>6</td>
+                    <td>EN, EL, FR</td>
+                </tr>
+                <tr>
+                    <td>Foo Jane</td>
+                    <td>Goggle</td>
+                    <td>jfoo@ggl.ccc</td>
+                    <td>6</td>
+                    <td>EN, AR</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
