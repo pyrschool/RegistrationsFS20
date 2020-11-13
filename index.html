@@ -5,7 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration stand</title>
-</head>
+    <script>
+        function collectRegistrationEntry() {
+            window.alert("Collecting");
+        }
+    </script>
+    </head>
 
 <body>
     <h2>Wellcome to our event</h2>
@@ -30,7 +35,7 @@
                 name="attLanguage2" id="attLanguage2"><input type="text" name="attLanguage3" id="attLanguage3">
         </div>
         <div class="registrationRow">
-            <input type="button" value="Register">
+            <input type="button" value="Register" onclick="collectRegistrationEntry()">
         </div>
     </form>
     <h3>Registered Attendees</h3>
@@ -45,7 +50,7 @@
                     <th>Languages</th>
                 <tr>
             </thead>
-            <tbody>
+            <tbody id="registeredAttendeesBody">
                 <tr>
                     <td>Doe John</td>
                     <td>Mikrosft</td>
